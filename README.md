@@ -3,6 +3,8 @@ things used for my Pisces P100
 
 ## fix_not_found.py
 
+Crid goes to [@herrtakacs](https://github.com/herrtakacs) for providing this script as a stand-alone version.
+
 1. scans the `error.log` for "not_found" issues
 2. attempt to fix them by manually refreshing the peers with their respective ids
 3. write to a new log `fix_not_found_log.log`
