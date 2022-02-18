@@ -44,53 +44,44 @@ def follow(filename, sleep_sec=0.1, seek_end=True):
             time.sleep(sleep_sec)
 
 def handle_exception():
-    # code here
-    print("Ooops....")
-    #pass
+    pass
 
 if __name__ == '__main__':
 
     #miner log
     log_file = "/home/pi/hnt/miner/log/console.log"
     #script log
-    log_file_self = "/home/pi/hnt/miner/log/fix_not_found_log"
-    print("Logging only failed to dial events")
-    print("Tailing file: %s" % (log_file,))
-    print("Writing log to file: %s" % (log_file_self,))
+    log_file_self = "/home/pi/hnt/miner/log/fix_not_found.log"
+    logfile = open(log_file_self, 'a')
+    logfile.write(datetime.now().strftime("%Y-%m-%d, %H:%M:%S\n"))
+    logfile.write("Logging failed to dial events\n")
+    logfile.write("Tailing file: %s\n" % (log_file,))
+    logfile.write("Writing log to file: %s\n" % (log_file_self,))
+    logfile.close()
 
     for line in follow(log_file):
         m = re.match(r'.*failed to dial (?:challenger|proxy server) "(.*)":? not_found', line)
         if m is not None:
-            #running peer command on failed peer
+            #running peer commands on failed peer
             try:
                 logfile = open(log_file_self, 'a')
                 peer = m.group(1)
                 #trying peer refresh
-                print(line, end='')
                 cmd = 'docker exec miner miner peer refresh %s' % (peer,)
-                print("Running: %s" % (cmd,))
                 logfile.write( datetime.now().strftime("%Y-%m-%d, %H:%M:%S   ") +  "Running: %s \n" % (cmd,) )
                 split_cmd = cmd.split(' ')
                 result = subprocess.check_output(split_cmd)
-                print("Got: %s" % (result,))
                 logfile.write( datetime.now().strftime("%Y-%m-%d, %H:%M:%S   ") +  "Got %s \n" % (result,) )
-                print(line, end='')
                 #trying to ping peer
-                #cmd = 'docker exec miner miner peer ping %s' % (peer,)
-                #print("Running: %s" % (cmd,))
                 #logfile.write( datetime.now().strftime("%Y-%m-%d, %H:%M:%S   ") +  "Running: %s \n" % (cmd,) )
                 #split_cmd = cmd.split(' ')
                 #result = subprocess.check_output(split_cmd)
-                #print("Got: %s" % (result,))
                 #logfile.write( datetime.now().strftime("%Y-%m-%d, %H:%M:%S   ") +  "Got %s \n" % (result,) )
-                #print(line, end='')
                 #trying to connect peer
                 cmd = 'docker exec miner miner peer connect %s' % (peer,)
-                print("Running: %s" % (cmd,))
                 logfile.write( datetime.now().strftime("%Y-%m-%d, %H:%M:%S   ") +  "Running: %s \n" % (cmd,) )
                 split_cmd = cmd.split(' ')
                 result = subprocess.check_output(split_cmd)
-                print("Got: %s" % (result,))
                 logfile.write( datetime.now().strftime("%Y-%m-%d, %H:%M:%S   ") +  "Got %s \n" % (result,) )
                 logfile.close()
             except Exception:

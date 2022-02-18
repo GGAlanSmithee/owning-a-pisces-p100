@@ -1,0 +1,11 @@
+[Unit]
+Description=Trying to fix Helium miner peer not_found errors
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3.7 /home/pi/hnt/miner/log/fix_not_found.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
