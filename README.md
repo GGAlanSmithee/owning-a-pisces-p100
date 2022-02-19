@@ -12,7 +12,10 @@ WARNING! USE THESE SCRIPTS ON YOUR OWN RISK! I DON'T ACCEPT ANY RESPONSIBILITY O
 
 ## fix_not_found
 
-`wget -O - https://raw.githubusercontent.com/GGAlanSmithee/owning-a-pisces-p100/main/fix_not_found/install.sh | bash`
+`wget -O - https://raw.githubusercontent.com/GGAlanSmithee/owning-a-pisces-p100/main/fix_not_found/install.sh |sudo bash`
+
+
+`wget -O - https://raw.githubusercontent.com/GGAlanSmithee/owning-a-pisces-p100/main/fix_not_found/uninstall.sh |sudo bash`
 
 Credit goes to https://github.com/HeliumDIY/helium_workarounds for creating the original script, and to [@herrtakacs](https://github.com/herrtakacs) for providing the script as a service.
 
