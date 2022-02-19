@@ -14,7 +14,7 @@ WARNING! USE THESE SCRIPTS ON YOUR OWN RISK! I DON'T ACCEPT ANY RESPONSIBILITY O
 
 `wget -O - https://raw.githubusercontent.com/GGAlanSmithee/owning-a-pisces-p100/main/fix_not_found/install.sh | bash`
 
-Credit goes to [@herrtakacs](https://github.com/herrtakacs) for providing this script as a service.
+Credit goes to https://github.com/HeliumDIY/helium_workarounds for creating the original script, and to [@herrtakacs](https://github.com/herrtakacs) for providing the script as a service.
 
 Registers a service which is run immediately as well as run on startup. It perform the following steps:
 
