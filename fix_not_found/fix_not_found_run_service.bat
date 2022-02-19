@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo systemctl daemon-reload
 sudo systemctl stop fix_not_found.service
 sudo systemctl disable fix_not_found.service
 sudo rm -f /home/pi/hnt/miner/log/fix_not_found.log
