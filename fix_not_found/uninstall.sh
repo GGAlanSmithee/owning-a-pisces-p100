@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#clean up everything
-
+# clean up everything
 sudo systemctl stop fix_not_found.service
 sudo systemctl disable fix_not_found.service
 sudo rm /lib/systemd/system/fix_not_found.service

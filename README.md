@@ -29,3 +29,17 @@ Registers a service which is run immediately as well as run on startup. It perfo
 3. write to a new log `/home/pi/hnt/miner/log/fix_not_found.log`
 
 Credit goes to https://github.com/HeliumDIY/helium_workarounds for creating the original script, and to [@herrtakacs](https://github.com/herrtakacs) for providing the script as a service.
+
+## display_miner_stats_on_ssh_login
+
+### Install
+
+`wget -O - https://raw.githubusercontent.com/GGAlanSmithee/owning-a-pisces-p100/main/display_miner_stats_on_ssh_login/install.sh |sudo bash`
+
+### Uninstall
+
+`wget -O - https://raw.githubusercontent.com/GGAlanSmithee/owning-a-pisces-p100/main/display_miner_stats_on_ssh_login/uninstall.sh |sudo bash`
+
+### Explanation
+
+Registers a script which is executed on ssh login and shows current CPU temperature and disk usage.
