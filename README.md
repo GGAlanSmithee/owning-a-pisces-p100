@@ -43,3 +43,5 @@ Credit goes to https://github.com/HeliumDIY/helium_workarounds for creating the 
 ### Explanation
 
 Registers a script which is executed on ssh login and shows current CPU temperature and disk usage.
+
+Credit goes to [@herrtakacs](https://github.com/herrtakacs) for providing the script.
